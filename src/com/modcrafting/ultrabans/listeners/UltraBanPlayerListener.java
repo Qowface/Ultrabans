@@ -126,8 +126,8 @@ public class UltraBanPlayerListener implements Listener{
 	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onAsyncLogin(AsyncPlayerPreLoginEvent event){
 		String ip = event.getAddress().getHostAddress();
-		String reason = Ultrabans.DEFAULT_ADMIN;
-		String admin = Ultrabans.DEFAULT_REASON;
+		String reason = Ultrabans.DEFAULT_REASON;
+		String admin = Ultrabans.DEFAULT_ADMIN;
 		if(plugin.cacheIP.containsKey(ip)){
 			for(BanInfo info : plugin.cacheIP.get(ip)){
 				 if(info.getType() == BanType.IPBAN.getId() || info.getType() == BanType.TEMPIPBAN.getId()){
@@ -154,7 +154,7 @@ public class UltraBanPlayerListener implements Listener{
 		String args[] = event.getMessage().split(" ");
 		String adminMsg = config.getString("Messages.Mute.Chat", "Your cry falls on deaf ears.");
 		
-		if (config.getBoolean("Jail.Vannila", true) && plugin.cache.containsKey(player.getName().toLowerCase())) {
+		if (config.getBoolean("Jail.Vanilla", true) && plugin.cache.containsKey(player.getName().toLowerCase())) {
 			List<BanInfo> list = plugin.cache.get(player.getName().toLowerCase());
 			for (BanInfo info : list) {
 				if (info.getType() == BanType.TEMPJAIL.getId() || info.getType() == BanType.JAIL.getId()) {
@@ -167,7 +167,7 @@ public class UltraBanPlayerListener implements Listener{
 			}
 		}
 		
-		if(plugin.muted.contains(player.getName().toLowerCase()) && config.getBoolean("Muted.Vannila", true)){
+		if(plugin.muted.contains(player.getName().toLowerCase()) && config.getBoolean("Muted.Vanilla", true)){
 			if(config.getStringList("Mute.AllowedCommands").contains(args[0])) return;
 			player.sendMessage(ChatColor.translateAlternateColorCodes('&',adminMsg));
 			event.setCancelled(true);

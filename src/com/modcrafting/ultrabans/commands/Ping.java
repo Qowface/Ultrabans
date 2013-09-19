@@ -45,11 +45,11 @@ public class Ping extends CommandHandler{
 						}
 	            	}
 	            }
-	            String msg = lang.getString("Ping.Personal");
+	            String msg = lang.getString("Ping.Other");
 	            if(msg.contains(Ultrabans.VICTIM))
-	            	msg.replace(Ultrabans.VICTIM, p.getName());
+	            	msg = msg.replace(Ultrabans.VICTIM, p.getName());
 	            if(msg.contains(Ultrabans.AMOUNT))
-	            	msg.replace(Ultrabans.AMOUNT, String.valueOf(ping));
+	            	msg = msg.replace(Ultrabans.AMOUNT, String.valueOf(ping));
 				return msg;
 			}
 			return lang.getString("Ping.Failed");
@@ -71,7 +71,7 @@ public class Ping extends CommandHandler{
             }
             String msg = lang.getString("Ping.Personal");
             if(msg.contains(Ultrabans.AMOUNT))
-            	msg.replace(Ultrabans.AMOUNT, String.valueOf(ping));
+            	msg = msg.replace(Ultrabans.AMOUNT, String.valueOf(ping));
 			return msg;
 		}
 		return lang.getString("Ping.Failed");

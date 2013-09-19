@@ -85,7 +85,7 @@ Chat:
     Silent: false
     Reason: 'Spam'
 Muted:
-  Vannila: true
+  Vanilla: true
   #When Vanilla: true allowed commands.#
   AllowedCommands:
   - '/login'
